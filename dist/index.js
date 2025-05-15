@@ -15,10 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 const connect_1 = __importDefault(require("./db/connect"));
 const PORT = process.env.PORT || 5000;
+// Usá esta variable para definir el dominio si estás en producción
+const DOMAIN = process.env.DOMAIN || `http://localhost:${PORT}`;
 const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, connect_1.default)(); // 👈 conectar antes de levantar servidor
+    yield (0, connect_1.default)();
     app_1.default.listen(PORT, () => {
-        console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+        console.log(`🚀 Servidor corriendo en ${DOMAIN}`);
     });
 });
 startServer();

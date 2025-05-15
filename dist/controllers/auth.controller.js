@@ -37,7 +37,7 @@ const loginHandler = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         const token = jsonwebtoken_1.default.sign({ id: user._id }, process.env.JWT_SECRET, {
             expiresIn: "1d",
         });
-        console.log("token", token);
+        console.log("email-token", email, token);
         return res.json({
             message: "Login successful",
             token,
@@ -50,6 +50,7 @@ const loginHandler = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 });
 exports.loginHandler = loginHandler;
 const profileHandler = (req, res) => {
+    console.log(req.user);
     return res.json({
         profile: {
             data: req.user,
