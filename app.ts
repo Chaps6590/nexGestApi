@@ -7,7 +7,7 @@ dotenv.config();
 
 const allowedOrigins = [
   'https://nexgest2.netlify.app',
-  'http://localhost:5173', // por si estás desarrollando en local
+  'http://localhost:5173',
 ];
 
 
