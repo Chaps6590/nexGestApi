@@ -28,7 +28,8 @@ export const loginHandler = async(req: Request, res: Response) => {
       expiresIn: "1d",
     });
 
-    console.log("token",token)
+    console.log("email-token",email,token)
+
     return res.json({
       message: "Login successful",
       token,
@@ -41,6 +42,7 @@ export const loginHandler = async(req: Request, res: Response) => {
 
 
 export const profileHandler = (req: Request, res: Response) => {
+  console.log(req.user)
   return res.json({
     profile :{
       data: req.user,

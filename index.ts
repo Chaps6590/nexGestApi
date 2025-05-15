@@ -3,11 +3,14 @@ import connectDB from "./db/connect";
 
 const PORT = process.env.PORT || 5000;
 
+// Usá esta variable para definir el dominio si estás en producción
+const DOMAIN = process.env.DOMAIN || `http://localhost:${PORT}`;
+
 const startServer = async () => {
-  await connectDB(); // 👈 conectar antes de levantar servidor
+  await connectDB();
 
   app.listen(PORT, () => {
-    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`🚀 Servidor corriendo en ${DOMAIN}`);
   });
 };
 
