@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by testing tools
+coverage/
+
+# Compiled binary addons
+build/Release
+
+# Optional npm cache directory
+.npm
+
+# Debug files
+*.tgz
+
+# OS files
+.DS_Store
+Thumbs.db
