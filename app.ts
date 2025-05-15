@@ -5,12 +5,27 @@ import router from "./routes/auth.routes";
 
 dotenv.config();
 
+const allowedOrigins = [
+  'https://nexgest2.netlify.app/auth/main',
+  'http://localhost:5173', // por si estás desarrollando en local
+];
+
+
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
+  origin: function (origin, callback) {
+    // Permitir solicitudes sin origen (como curl o postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
+
 app.use(express.json());
 app.use('/api',router);
 
